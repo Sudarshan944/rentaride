@@ -1,12 +1,11 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Car {
 	char[] driver = {'A','B','C','D','E'};
 	String[] car_model= {"Sedan","Hatchback","5-Seater","Sedan","Hatchback"};
 	double[] rating = {4,4.3,4.8,4.1,4.7};
 	double[] distance = {0.5,1,0.2,0.7,0.43};
-	public void CarInfo(){
-	System.out.println("List of Drivers with Details:");
+	public Car(){
 	boolean iskm=true;
 	System.out.println("Driver\t\t"+"CarModel\t\t"+"Rating\t\t"+"Distance From Customer");
 		for(int i=0;i<driver.length;i++) {
@@ -37,7 +36,7 @@ public class Car {
 					flag=true;
 					minimum_distance = (int) this.distance[i];
 					driver_selected = this.driver[i];
-					System.out.print("Inside city - (1) or any Destination - (2): ");
+					System.out.print("Inside city - (1) or any other Destination - (2): ");
 					choice= sc.nextInt() == 1;
 					if(!choice) {
 					System.out.print("Destination:");
@@ -59,7 +58,7 @@ public class Car {
 		}sc.close();
 		if(flag==false) {
 			System.out.println("Select some other car");
-			this.CarInfo();
+			System.exit(1);
 		}
 	}
 	public void EstimateCost(double distance) {
